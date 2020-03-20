@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  useCallback
+} from "react";
 import { random } from "lodash";
 import { useFrame } from "react-three-fiber";
 
@@ -16,6 +22,9 @@ export default () => {
     return [random(-3, 3, true), random(-3, 3, true), random(-3, 3, true)];
   }, []);
 
+  // random time mod factor
+  const timeMod = useMemo(() => random(0.1, 4, true), []);
+
   // Color
   const color = isHovered ? 0xe5d54d : isActive ? 0xf7e7e5 : 0xf95b3c;
 
@@ -25,11 +34,38 @@ export default () => {
 
   // Raf loop
   useFrame(() => {
-    mesh.current.rotation.y += 0.01;
+    mesh.current.rotation.y += 0.01 * timeMod;
+    if (isActiveRef.current) {
+      time.current += 0.03;
+      mesh.current.position.y = position[1] + Math.sin(time.current) * 0.4;
+    }
   });
 
+  // Events
+  const onHover = useCallback(
+    (e, value) => {
+      e.stopPropagation();
+      setIsHovered(value);
+    },
+    [setIsHovered]
+  );
+
+  const onClick = useCallback(
+    e => {
+      e.stopPropagation();
+      setIsActive(v => !v);
+    },
+    [setIsActive]
+  );
+
   return (
-    <mesh ref={mesh} position={position}>
+    <mesh
+      ref={mesh}
+      position={position}
+      onClick={onClick}
+      onPointerOver={e => onHover(e, true)}
+      onPointerOut={e => onHover(e, false)}
+    >
       <boxBufferGeometry attach="geometry" args={[0.047, 0.5, 0.29]} />
       <meshStandardMaterial
         attach="material"

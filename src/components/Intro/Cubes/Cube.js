@@ -19,7 +19,7 @@ export default () => {
 
   // Position
   const position = useMemo(() => {
-    return [random(-3, 3, true), random(-3, 3, true), random(-3, 3, true)];
+    return [random(-7, 7, true), random(-7, 7, true), random(-7, 7, true)];
   }, []);
 
   // random time mod factor

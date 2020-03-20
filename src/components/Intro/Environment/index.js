@@ -3,7 +3,7 @@ import { BackSide } from "three";
 
 export default () => (
   <mesh>
-    <sphereBufferGeometry args={[5, 10, 10]} attach="geometry" />
+    <boxBufferGeometry args={[30, 1, 10]} attach="geometry" />
     <meshStandardMaterial
       color={0xd2452b}
       attach="material"

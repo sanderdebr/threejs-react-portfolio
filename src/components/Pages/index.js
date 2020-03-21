@@ -9,9 +9,9 @@ import Content from "../Content";
 
 const Pages = () => {
   const textures = useLoader(TextureLoader, state.images);
-  const [img1] = textures.map(texture => {
+  const [img1, img2] = textures.map(texture => {
     texture.minFilter = LinearFilter;
-    return null;
+    return texture;
   });
 
   return (
@@ -26,7 +26,7 @@ const Pages = () => {
         </Dom>
       </Block>
       <Block factor={1} offset={2}>
-        <Content left />
+        <Content map={img2} left />
       </Block>
     </>
   );

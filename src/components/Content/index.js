@@ -1,6 +1,6 @@
 import React from "react";
 import { useBlock } from "../Blocks";
-import Plane from "../Geometry/Plane";
+import Plane from "./Plane";
 
 export default function Content({ left, children, map }) {
   const { contentMaxWidth, canvasWidth, margin } = useBlock();

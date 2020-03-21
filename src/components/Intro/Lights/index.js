@@ -16,14 +16,16 @@ export default () => {
   return (
     <group>
       <FakeSphere />
-      <ambientLight ref={ref2} position={[0, 4, 0]} intensity={0.1}>
+      <ambientLight ref={ref2} position={[0, 4, 0]} intensity={0.3}>
         {ambLight && <pointLightHelper args={[ambLight]} />}
       </ambientLight>
 
+      <directionalLight intensity={0.5} position={[0, 0, 0]} color={0xffffff} />
+
       <pointLight
         ref={ref}
-        intensity={1.1}
-        position={[-6, 6, -6]}
+        intensity={1.9}
+        position={[-6, 3, -6]}
         color={0xffcc77}
       >
         {pLight1 && <pointLightHelper args={[pLight1]} />}
@@ -31,8 +33,8 @@ export default () => {
 
       <pointLight
         ref={ref3}
-        intensity={1.1}
-        position={[6, 6, 6]}
+        intensity={1.9}
+        position={[6, 3, 6]}
         color={0xffcc77}
       >
         {pLight2 && <pointLightHelper args={[pLight2]} />}

@@ -32,10 +32,18 @@ const Terrain = () => {
     mesh.current.rotation.z += 0.001;
   });
 
+  const shading = THREE.FlatShading;
+
   return (
     <mesh ref={mesh} rotation={[-Math.PI / 2, 0, 0]}>
-      <planeBufferGeometry attach="geometry" args={[30, 25, 99, 99]} />
-      <meshLambertMaterial attach="material" color={0x000000} wireframe />
+      <planeBufferGeometry attach="geometry" args={[25, 25, 99, 99]} />
+      <meshPhongMaterial
+        attach="material"
+        color={"hotpink"}
+        specular={0x773300}
+        shininess={3}
+        shading={shading}
+      />
     </mesh>
   );
 };

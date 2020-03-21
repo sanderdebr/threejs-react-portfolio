@@ -4,7 +4,6 @@ import { TextureLoader, LinearFilter } from "three";
 import state from "../../store";
 
 import Intro from "../Intro";
-import Terrain from "../Terrain";
 import Block from "../Blocks";
 import Content from "../Content";
 
@@ -19,7 +18,6 @@ const Pages = () => {
     <>
       <Block factor={1} offset={0}>
         <Intro />
-        <Terrain />
       </Block>
       <Block factor={1} offset={1}>
         <Content map={img1} />

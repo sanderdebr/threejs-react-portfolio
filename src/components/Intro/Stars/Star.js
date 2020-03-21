@@ -8,7 +8,7 @@ import React, {
 import { random } from "lodash";
 import { useFrame } from "react-three-fiber";
 
-export default () => {
+const Star = () => {
   const mesh = useRef();
   const time = useRef(0);
 
@@ -19,7 +19,7 @@ export default () => {
 
   // Position
   const position = useMemo(() => {
-    return [random(-7, 7, true), random(-7, 7, true), random(-7, 7, true)];
+    return [random(-12, 12, true), random(0, 6, true), random(-12, 12, true)];
   }, []);
 
   // random time mod factor
@@ -66,13 +66,10 @@ export default () => {
       onPointerOver={e => onHover(e, true)}
       onPointerOut={e => onHover(e, false)}
     >
-      <boxBufferGeometry attach="geometry" args={[0.047, 0.5, 0.29]} />
-      <meshStandardMaterial
-        attach="material"
-        color={color}
-        roughness={0.6}
-        metalness={0.1}
-      />
+      <sphereBufferGeometry attach="geometry" args={[0.3, 32, 32]} />
+      <meshPhongMaterial attach="material" color={color} />
     </mesh>
   );
 };
+
+export default Star;

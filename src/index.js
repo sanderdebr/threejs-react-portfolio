@@ -15,7 +15,7 @@ function App() {
         <Suspense
           fallback={<Dom center className="loading" children="Loading..." />}
         >
-          {/* <Controls enableDamping rotateSpeed={0.3} dampingFactor={0.1} /> */}
+          <Controls />
           <Pages />
         </Suspense>
       </Canvas>

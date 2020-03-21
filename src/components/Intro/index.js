@@ -1,14 +1,14 @@
 import React from "react";
 
-import Cubes from "./Cubes";
+import Stars from "./Stars";
 import Lights from "./Lights";
-import Environment from "./Environment";
+import Terrain from "./Terrain";
 
 const Intro = () => (
   <>
-    <Environment />
     <Lights />
-    <Cubes />
+    <Stars />
+    <Terrain />
   </>
 );
 

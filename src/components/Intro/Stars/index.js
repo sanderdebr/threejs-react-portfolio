@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { map } from "lodash";
 import { useFrame } from "react-three-fiber";
 
-import Cube from "./Cube";
+import Star from "./Star";
 
 export default () => {
   const group = useRef();
@@ -11,9 +11,9 @@ export default () => {
     group.current.rotation.y += 0.005;
   });
 
-  const nodesCubes = map(new Array(50), (el, i) => {
-    return <Cube key={i} />;
+  const nodesStars = map(new Array(50), (el, i) => {
+    return <Star key={i} />;
   });
 
-  return <group ref={group}>{nodesCubes}</group>;
+  return <group ref={group}>{nodesStars}</group>;
 };

@@ -3,7 +3,7 @@ import { createRef } from "react";
 const state = {
   sections: 3,
   pages: 3,
-  zoom: 100,
+  zoom: 50,
   top: createRef(),
   images: ["/assets/textures/city.jpeg"]
 };
